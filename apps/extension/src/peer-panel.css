@@ -1,0 +1,313 @@
+.peer-panel {
+  width: min(660px, calc(100vw - 28px));
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  padding: 24px;
+  border: 1px solid #324257;
+  background: #0f1928;
+  color: var(--text, #bdccdd);
+}
+.peer-panel-heading,
+.peer-connection-status,
+.peer-actions,
+.peer-footer,
+.peer-models > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.peer-panel-heading {
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.peer-panel h2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 5px 0 0;
+  font-size: 20px;
+}
+.peer-panel h3 {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--text, #d5e0ec);
+}
+.peer-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--mint, #80dfc5);
+}
+.peer-panel .peer-icon-button {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  background: transparent;
+  border: 1px solid #304257;
+  border-radius: 8px;
+  color: var(--muted, #92a8c0);
+}
+.peer-identity-card {
+  border: 1px solid #2e4053;
+  border-radius: 11px;
+  padding: 13px 15px;
+  background: #152233;
+}
+.peer-identity-card > div:not(:first-child) {
+  margin-top: 10px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 3px 10px;
+  font-size: 10px;
+  color: var(--muted, #8dabc1);
+}
+.peer-identity-card code {
+  color: var(--text, #b9c8e4);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.peer-connection-status {
+  font-size: 12px;
+  color: var(--muted, #9caec3);
+}
+.peer-connection-status > i {
+  width: 6px;
+  height: 6px;
+  background: #657b94;
+  border-radius: 50%;
+}
+.peer-connection-status[data-peer-state="connected"] {
+  color: var(--mint, #80dfc5);
+}
+.peer-connection-status[data-peer-state="connected"] > i {
+  background: #80dfc5;
+  box-shadow: 0 0 10px #80dfc530;
+}
+.peer-connection-status > small {
+  margin-left: auto;
+  color: var(--text, #a8b9d0);
+}
+.peer-panel label {
+  display: grid;
+  gap: 7px;
+  margin: 13px 0;
+  min-width: 0;
+  font-size: 11px;
+  color: var(--muted, #94aac1);
+}
+.peer-panel :is(input, select, textarea) {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid #304257;
+  border-radius: 8px;
+  color: var(--text, #cad8e8);
+  background: #0b1523;
+  font: inherit;
+  font-size: 12px;
+}
+.peer-panel textarea {
+  resize: vertical;
+  max-height: 160px;
+  font:
+    10px/1.5 ui-monospace,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.peer-panel :is(input, select, textarea, button):focus-visible {
+  outline: 2px solid #80dfc5;
+  outline-offset: 2px;
+}
+.peer-panel :is(.primary, .secondary) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 8px 11px;
+  font-size: 11px;
+  border-radius: 8px;
+}
+.peer-panel button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.peer-actions,
+.peer-footer {
+  flex-wrap: wrap;
+}
+.peer-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.peer-description,
+.peer-notice {
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--muted, #8fa5bf);
+}
+.peer-network-settings {
+  margin-top: 17px;
+  border-top: 1px solid #28384b;
+  padding-top: 13px;
+}
+.peer-network-settings summary {
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--text, #b2c2d7);
+}
+.peer-publish,
+.peer-jobs,
+.peer-results {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #28384b;
+}
+.peer-job,
+.peer-result {
+  display: grid;
+  gap: 10px;
+  padding: 13px;
+  border: 1px solid #2b3b50;
+  border-radius: 10px;
+  background: #121f30;
+  margin-top: 9px;
+}
+.peer-job strong,
+.peer-result strong {
+  display: block;
+  font-size: 12px;
+  color: var(--text, #cedbea);
+  overflow-wrap: anywhere;
+}
+.peer-job > div > span,
+.peer-result > div > span {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  color: var(--muted, #8fa7bf);
+}
+.peer-job > small {
+  font-size: 10px;
+  color: var(--muted, #a6b8cd);
+  text-transform: capitalize;
+}
+.peer-job .primary {
+  justify-self: start;
+}
+.peer-job-progress {
+  display: grid;
+  gap: 5px;
+}
+.peer-input-identity {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 11px;
+}
+.peer-input-identity code {
+  font-size: 10px;
+}
+.peer-input-identity .secondary {
+  padding: 5px 8px;
+  min-height: 28px;
+  font-size: 11px;
+}
+.peer-job-progress progress {
+  accent-color: var(--highlight);
+  height: 4px;
+  width: 100%;
+}
+.peer-job-progress > span {
+  font-size: 10px;
+  color: var(--muted, #9bb3c8);
+}
+.peer-models > div {
+  justify-content: space-between;
+}
+.peer-models > div > span {
+  font-size: 11px;
+}
+.peer-models b {
+  margin-left: 10px;
+  font-variant-numeric: tabular-nums;
+  color: var(--mint, #80dfc5);
+}
+.peer-models small {
+  font-size: 9px;
+  color: var(--muted, #8fa7bf);
+}
+.peer-footer {
+  margin-top: 20px;
+  border-top: 1px solid #28384b;
+  padding-top: 16px;
+}
+.peer-scope {
+  margin: 13px 0 0;
+  font-size: 9px;
+  line-height: 1.6;
+  color: var(--muted, #7188a0);
+}
+.peer-error {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #e6b294;
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 500px) {
+  .peer-panel {
+    padding: 18px;
+    max-height: calc(100dvh - 24px);
+  }
+  .peer-panel h2 {
+    font-size: 17px;
+  }
+  .peer-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .peer-footer > button {
+    flex: 1 1 auto;
+  }
+}
+
+.peer-target-upload input[type="file"] {
+  padding: 12px;
+}
+.peer-protocol-budget {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 4px 0 14px;
+}
+.peer-connect-link {
+  display: block;
+  margin-top: 14px;
+  color: var(--mint);
+  font-size: 12px;
+}
+.peer-recipient,
+.peer-record-binding {
+  font-size: 10px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.peer-record-binding {
+  display: grid;
+  gap: 2px;
+  margin: 8px 0;
+}
+.peer-panel .peer-publish {
+  margin-top: 20px;
+  scroll-margin-top: 20px;
+}
+.peer-panel .peer-pairing {
+  margin-top: 24px;
+  scroll-margin-top: 20px;
+}

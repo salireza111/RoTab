@@ -1,0 +1,55 @@
+{
+  "name": "@rotab/rosetta-wasm",
+  "version": "0.1.0",
+  "description": "Browser worker API for RoTab's pinned, bounded Rosetta WebAssembly port. Scientific engine assets are licensed separately.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+    "THIRD_PARTY_LICENSES"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./score": {
+      "types": "./dist/methods/score.d.ts",
+      "import": "./dist/methods/score.js"
+    },
+    "./relax": {
+      "types": "./dist/methods/relax.d.ts",
+      "import": "./dist/methods/relax.js"
+    },
+    "./minimize": {
+      "types": "./dist/methods/minimize.d.ts",
+      "import": "./dist/methods/minimize.js"
+    },
+    "./repack": {
+      "types": "./dist/methods/repack.d.ts",
+      "import": "./dist/methods/repack.js"
+    },
+    "./fixed-backbone-design": {
+      "types": "./dist/methods/fixed-backbone-design.d.ts",
+      "import": "./dist/methods/fixed-backbone-design.js"
+    },
+    "./fastdesign": {
+      "types": "./dist/methods/fastdesign.d.ts",
+      "import": "./dist/methods/fastdesign.js"
+    },
+    "./cartesian-minimize": {
+      "types": "./dist/methods/cartesian-minimize.d.ts",
+      "import": "./dist/methods/cartesian-minimize.js"
+    },
+    "./cartesian-relax": {
+      "types": "./dist/methods/cartesian-relax.d.ts",
+      "import": "./dist/methods/cartesian-relax.js"
+    },
+    "./worker": "./dist/worker.js"
+  }
+}

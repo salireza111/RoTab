@@ -1,0 +1,63 @@
+{
+  "name": "rotab",
+  "private": true,
+  "version": "0.5.11",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "vite --config apps/extension/vite.config.ts --host 127.0.0.1",
+    "build": "npm run typecheck && vite build --config apps/extension/vite.config.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "engine:fetch": "bash scripts/fetch-engine.sh",
+    "engine:configure": "bash scripts/build-engine.sh configure",
+    "engine:build": "bash scripts/build-engine.sh build",
+    "engine:verify": "node scripts/verify-engine.mjs",
+    "engine:verify-protocols": "tsx scripts/verify-protocols.ts",
+    "engine:prepare-browser": "node scripts/prepare-browser-candidate.mjs",
+    "engine:verify-browser": "tsx scripts/verify-standalone.ts --candidate --live-proof",
+    "engine:verify-browser-protocols": "tsx scripts/verify-browser-protocols.ts",
+    "engine:verify-inputs": "tsx scripts/verify-browser-inputs.ts",
+    "engine:measure-browser": "tsx scripts/measure-browser-engine.ts",
+    "engine:package": "node scripts/package-engine.mjs",
+    "engine:build-application": "bash scripts/build-application.sh",
+    "engine:run-application": "node scripts/run-application.mjs",
+    "engine:build-cyclic": "bash scripts/build-cyclic.sh",
+    "engine:verify-cyclic": "node scripts/verify-application.mjs",
+    "benchmark:compare": "tsx scripts/compare-browser-benchmark.ts",
+    "sdk:build": "node scripts/build-wasm-sdk.mjs",
+    "sdk:pack": "npm run sdk:build && npm pack ./packages/rosetta-wasm --pack-destination dist",
+    "sdk:bundle": "npm run sdk:build && node scripts/bundle-wasm-sdk.mjs",
+    "sdk:verify-browser": "tsx scripts/verify-wasm-sdk.ts"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "molstar": "^5.0.0",
+    "nostr-tools": "2.25.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/chrome": "^0.1.24",
+    "@types/node": "^24.7.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "prettier": "^3.9.9",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9",
+    "vitest": "^5.0.3",
+    "esbuild": "0.28.2"
+  },
+  "description": "Protein research and volunteer computation in a browser new tab.",
+  "license": "MIT",
+  "homepage": "https://salireza111.github.io/RoTab_Doc/"
+}

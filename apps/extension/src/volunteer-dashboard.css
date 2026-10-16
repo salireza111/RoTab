@@ -1,0 +1,169 @@
+.volunteer-setup {
+  margin: 12px 0 16px;
+  min-width: 0;
+}
+.volunteer-connection {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+.volunteer-room {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  flex: 1;
+  min-width: 0;
+}
+.volunteer-room input {
+  height: 38px;
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+.volunteer-connection > button {
+  height: 38px;
+  flex-shrink: 0;
+}
+.volunteer-connected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  flex: 1;
+  min-width: 0;
+  color: var(--text);
+  font-size: 12px;
+}
+.volunteer-connected > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.volunteer-connected small {
+  margin-left: auto;
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: 10px;
+}
+.volunteer-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 0 auto;
+  width: fit-content;
+  flex-shrink: 0;
+  color: var(--text);
+  font-size: 11px;
+  cursor: pointer;
+}
+.volunteer-checkbox input {
+  appearance: auto;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 16px;
+  accent-color: var(--highlight);
+}
+.volunteer-status {
+  margin: 10px 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.volunteer-project {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--panel);
+  min-width: 0;
+}
+.volunteer-project > div {
+  flex: 1;
+  min-width: 0;
+}
+.volunteer-project strong,
+.research-context strong {
+  font-size: 12px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.volunteer-project small {
+  font-size: 10px;
+  color: var(--muted);
+}
+.volunteer-project > button {
+  flex-shrink: 0;
+}
+.research-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 6px 0;
+  white-space: pre-line;
+}
+.research-context {
+  padding: 11px 13px;
+  border-left: 3px solid var(--mint);
+  background: color-mix(in srgb, var(--mint) 5%, var(--panel));
+  border-radius: 0 7px 7px 0;
+  margin: 12px 0;
+}
+.research-context > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.research-context small {
+  font-size: 9px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.research-context p {
+  margin-bottom: 0;
+}
+.volunteer-error {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.volunteer-setup :is(input, button):focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+}
+@media (max-width: 520px) {
+  .volunteer-connection {
+    flex-wrap: wrap;
+  }
+  .volunteer-checkbox {
+    margin-left: 0;
+  }
+  .volunteer-project {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .research-description {
+    -webkit-line-clamp: 4;
+  }
+}

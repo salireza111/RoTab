@@ -1,0 +1,8 @@
+{
+  "protocol":"relax",
+  "outputDirectory":".local/application-wasm-relax",
+  "files":[{"name":"input.pdb","path":"apps/extension/public/fixtures/1l2y.pdb"}],
+  "arguments":["-constant_seed","-jran","17","-mute","all","-nstruct","1",
+    "-in:file:s","input.pdb","-relax:fast","-relax:default_repeats","1","-out:pdb",
+    "-in:file:no_binary_dunlib","true","-out:file:dont_rewrite_dunbrack_database","true"]
+}

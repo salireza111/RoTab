@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rosetta WASM · standalone example</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font:
+        16px system-ui,
+        sans-serif;
+    }
+    body {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      letter-spacing: -0.04em;
+    }
+    label {
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0.5rem 1rem 0.5rem 0;
+    }
+    button,
+    select,
+    input {
+      padding: 0.6rem;
+      font: inherit;
+    }
+    input[type="number"] {
+      width: 5rem;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    svg {
+      width: 100%;
+      height: 180px;
+      border: 1px solid #888;
+    }
+    #energy {
+      font-variant-numeric: tabular-nums;
+    }
+    #downloads {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+  </style>
+  <h1>Rosetta, outside the extension.</h1>
+  <p>
+    A dedicated browser worker runs the same pinned scientific engine. No task
+    server, BOINC client or native helper is used.
+  </p>
+  <label
+    >PDB <input id="file" type="file" accept=".pdb,.ent,text/plain"
+  /></label>
+  <label
+    >Method
+    <select id="protocol">
+      <option value="score">Score</option>
+      <option value="minimize">Minimize</option>
+      <option value="relax">FastRelax</option>
+      <option value="repack">Repack</option>
+      <option value="fixed_backbone_design">Fixed-backbone design</option>
+      <option value="fastdesign">FastDesign</option>
+      <option value="cartesian_minimize">Cartesian minimize</option>
+      <option value="cartesian_relax">Cartesian relax</option>
+    </select></label
+  >
+  <label
+    >Seed <input id="seed" type="number" min="1" max="2000000000" value="17"
+  /></label>
+  <label
+    >Intensity
+    <input id="duty" type="number" min="10" max="75" value="25" />%</label
+  >
+  <p><button id="run">Run</button> <button id="abort" disabled>Stop</button></p>
+  <p id="status" role="status">
+    Ready · bundled 1L2Y unless a PDB is selected. Cold initialization can take
+    minutes.
+  </p>
+  <p id="energy">Energy — REU</p>
+  <svg viewBox="0 0 900 180" aria-label="Live REF2015 energy history">
+    <polyline id="line" fill="none" stroke="currentColor" stroke-width="2" />
+  </svg>
+  <div id="downloads"></div>
+  <pre id="details"></pre>
+  <script type="module" src="./main.js"></script>
+</html>

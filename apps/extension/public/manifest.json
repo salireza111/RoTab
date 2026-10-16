@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "RoTab",
+  "version": "0.5.11",
+  "homepage_url": "https://salireza111.github.io/RoTab_Doc/",
+  "description": "A protein research observatory in every new tab. Bundled WebAssembly computation with explicit volunteer controls.",
+  "minimum_chrome_version": "120",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "favicon",
+    "geolocation",
+    "search"
+  ],
+  "host_permissions": [
+    "https://api.open-meteo.com/*",
+    "https://geocoding-api.open-meteo.com/*",
+    "https://photon.komoot.io/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; worker-src 'self'; base-uri 'self'"
+  },
+  "incognito": "not_allowed",
+  "icons": {
+    "16": "status-16.png",
+    "32": "status-32.png",
+    "48": "status-48.png",
+    "128": "status-128.png"
+  },
+  "optional_permissions": [
+    "identity",
+    "topSites"
+  ]
+}

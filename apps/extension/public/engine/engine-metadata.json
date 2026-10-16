@@ -1,0 +1,8 @@
+{
+  "id": "rosetta-protocols-v2",
+  "sourceSha": "369e400415dd5c585f80dcf7b647147ee520e8ba",
+  "verified": false,
+  "module": "rosetta.mjs",
+  "database": "rosetta.data",
+  "reason": "This source-only build has no verified scientific engine. Install RoTab from the Chrome Web Store for packaged calculations, or build and validate the scientific assets separately."
+}

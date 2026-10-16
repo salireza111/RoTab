@@ -1,0 +1,41 @@
+RoTab — search privacy
+Effective date: 15 October 2026
+Publisher: Alireza
+Contact: salireza111@gmail.com
+
+Browser default submits searches through the browser's Search API and does not
+request autocomplete. The browser's selected search provider handles the search.
+Every new tab and reload starts on Browser default, which is the first option.
+
+Selecting Google, DuckDuckGo, Brave or Bing directs submitted searches to that
+provider for the current tab. Selecting a named provider also requests optional access to its
+suggestions service. Once access is granted, suggestions are enabled and partial
+queries of at least two characters are sent after a short pause in typing.
+Search suggestions can be disabled in the engine menu. Declining access keeps
+searches available without suggestions. Search settings in the browser remain
+unchanged.
+
+Search and suggestions services receive the query and ordinary connection
+metadata, including the source IP address. Suggestions are requested directly
+from the selected provider over HTTPS, without cookies or a referrer. The
+selected provider applies its own privacy practices. Requests are not sent to
+another provider if the selected service is unavailable.
+
+The selected engine is held in the current tab's memory. It is not saved as an
+opening default or synchronized with other tabs. RoTab saves the suggestions
+enabled/disabled preference in the local browser profile. Query text and
+suggestions are held only in the current page's memory;
+RoTab does not retain a search history, send it to the publisher, or share it
+with volunteer peers. Browser navigation history and external providers' logs
+are controlled separately by the browser and those services.
+
+This notice describes the search features in RoTab 0.5.11. The
+general RoTab privacy policy describes the unchanged scientific, network,
+weather, calendar and local-widget features:
+https://salireza111.github.io/RoTab_Doc/policies/privacy.html
+
+Provider privacy information:
+Google: https://policies.google.com/privacy
+DuckDuckGo: https://duckduckgo.com/privacy
+Brave: https://search.brave.com/help/privacy-policy
+Bing: https://privacy.microsoft.com/privacystatement

@@ -1,0 +1,90 @@
+.snapshot-inspector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  padding: 14px clamp(16px, 3vw, 28px);
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  font-variant-numeric: tabular-nums;
+}
+.snapshot-inspector-current,
+.snapshot-inspector-baseline {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.snapshot-inspector-label {
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  color: var(--mint, #80dfc5);
+}
+.snapshot-inspector-baseline .snapshot-inspector-label {
+  color: var(--violet, #b5a8ec);
+}
+.snapshot-inspector strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text, #d3dfeb);
+}
+.snapshot-inspector-current > span:last-child,
+.snapshot-inspector-baseline > span:last-child {
+  font-size: 11px;
+  color: var(--muted, #91a7ba);
+  overflow-wrap: anywhere;
+}
+.snapshot-inspector i {
+  font-style: normal;
+  margin: 0 3px;
+  color: var(--muted, #5c758d);
+}
+.snapshot-inspector-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+.snapshot-inspector button,
+.snapshot-inspector select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--text, #bbcddd);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.snapshot-inspector button:hover:not(:disabled) {
+  background: var(--highlight-soft);
+  border-color: var(--highlight);
+  color: var(--text);
+}
+.snapshot-inspector button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.snapshot-inspector :is(button, select):focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 2px;
+}
+.snapshot-playback {
+  display: flex;
+  gap: 4px;
+}
+@media (max-width: 600px) {
+  .snapshot-inspector {
+    gap: 12px 18px;
+    padding: 12px 16px;
+  }
+  .snapshot-inspector-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,19 @@
+# Factory registrations required by ref2015 protocols and Cartesian refinement.
+# Only the WASM harness uses this bounded catalogue. Native reference keeps all upstream methods.
+# Scoring formulas, weights, atom types, derivatives and optimization algorithms stay upstream.
+ConstraintsEnergyCreator
+FullatomDisulfideEnergyCreator
+EtableEnergyCreator
+EtableClassicIntraEnergyCreator
+HBondEnergyCreator
+OmegaTetherEnergyCreator
+P_AA_pp_EnergyCreator
+ProClosureEnergyCreator
+RamaPreProEnergyCreator
+RamachandranEnergyCreator
+ReferenceEnergyCreator
+DunbrackEnergyCreator
+FA_ElecEnergyCreator
+LK_BallEnergyCreator
+YHHPlanarityEnergyCreator
+CartesianBondedEnergyCreator

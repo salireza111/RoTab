@@ -1,0 +1,245 @@
+/* Keep the protein canvas in place while either side panel slides away. */
+.calculation-close-notice {
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dashboard-view {
+  --favorites-open-width: 204px;
+  --widgets-open-width: 248px;
+  --favorites-width: var(--favorites-open-width);
+  --widgets-width: var(--widgets-open-width);
+}
+.dashboard-view[data-favorites-collapsed="true"] {
+  --favorites-width: 0px;
+}
+.dashboard-view[data-widgets-collapsed="true"] {
+  --widgets-width: 0px;
+}
+.dashboard-view .sidebar {
+  width: var(--favorites-width);
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  transition: width 260ms ease;
+}
+.dashboard-view .sidebar-content {
+  display: flex;
+  flex-direction: column;
+  width: var(--favorites-open-width);
+  min-width: var(--favorites-open-width);
+  height: 100%;
+  padding: 25px 19px;
+  border-right: 1px solid color-mix(in srgb, var(--line) 25%, transparent);
+  transition:
+    opacity 180ms ease,
+    transform 260ms ease;
+}
+.dashboard-view[data-favorites-collapsed="true"] .sidebar-content {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.dashboard-view .workspace {
+  max-width: none;
+  margin: 0;
+}
+.dashboard-view .workspace-grid {
+  grid-template-columns: minmax(0, 1fr) 22px var(--widgets-width);
+  gap: 0;
+  transition: grid-template-columns 260ms ease;
+}
+.dashboard-view .science-column {
+  grid-column: 1;
+  grid-row: 1;
+}
+.dashboard-widget-panel {
+  grid-column: 3;
+  grid-row: 1;
+  min-width: 0;
+  overflow: hidden;
+  transition:
+    opacity 180ms ease,
+    transform 260ms ease;
+}
+.dashboard-widget-panel > .widgets {
+  width: var(--widgets-open-width);
+}
+.dashboard-view[data-widgets-collapsed="true"] .dashboard-widget-panel {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.home-widgets {
+  display: contents;
+}
+.dashboard-panel-toggle {
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 68px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  box-shadow: none;
+}
+.dashboard-panel-toggle:hover {
+  color: var(--text);
+  background: transparent;
+}
+.dashboard-panel-toggle-left {
+  position: fixed;
+  top: calc(50dvh - 34px);
+  left: max(0px, calc(var(--favorites-width) - 24px));
+  transition: left 260ms ease;
+}
+.dashboard-panel-toggle-right {
+  position: sticky;
+  top: calc(50dvh - 34px);
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  align-self: start;
+  transform: translateX(22px);
+  transition: transform 260ms ease;
+}
+.dashboard-view[data-widgets-collapsed="true"] .dashboard-panel-toggle-right {
+  transform: none;
+}
+
+/* One outer frame, with open space between the scientific controls. */
+.dashboard-view .observatory-heading {
+  border: 0;
+  padding: 14px 20px 8px;
+}
+.dashboard-view .protein-stage {
+  height: clamp(320px, 48dvh, 640px);
+}
+.dashboard-view .protein-color-key {
+  border: 0;
+  padding: 14px 20px;
+}
+.dashboard-view .residue-inspector {
+  border: 0;
+}
+.dashboard-view .protein-comparison-reading {
+  border: 0;
+  padding: 8px 20px;
+}
+.dashboard-view .observatory > .energy-chart {
+  border: 0;
+  padding: 12px 20px 0;
+}
+.dashboard-view .snapshot-seek {
+  border: 0;
+  padding-top: 0;
+  margin-top: 10px;
+}
+.dashboard-view .snapshot-inspector {
+  border: 0;
+  padding: 10px 20px 16px;
+  gap: 10px 24px;
+}
+.dashboard-view :is(.snapshot-inspector-current, .snapshot-inspector-baseline) {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+.dashboard-view .calculation {
+  border-top: 1px solid color-mix(in srgb, var(--line) 20%, transparent);
+  padding: 20px;
+}
+.dashboard-view .progress-track {
+  height: 3px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1200px) and (min-width: 1001px) {
+  .dashboard-view {
+    --favorites-open-width: 180px;
+    --widgets-open-width: 224px;
+  }
+  .dashboard-view .sidebar-content {
+    padding-inline: 15px;
+  }
+}
+@media (max-width: 1000px) {
+  .dashboard-view {
+    --favorites-open-width: 170px;
+  }
+  .dashboard-view .workspace-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .dashboard-view .sidebar-content {
+    padding-inline: 16px;
+  }
+  .dashboard-panel-toggle-right {
+    position: static;
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    transform: none;
+  }
+  .dashboard-widget-panel {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .dashboard-widget-panel > .widgets {
+    width: 100%;
+  }
+  .dashboard-view[data-widgets-collapsed="true"] .dashboard-widget-panel {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .dashboard-view {
+    --favorites-open-width: min(280px, calc(100vw - 52px));
+  }
+  .dashboard-view .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    height: 100dvh;
+    z-index: 10;
+    display: block;
+  }
+  .dashboard-view .sidebar-content {
+    padding: 24px 20px;
+  }
+  .dashboard-view .sidebar-section {
+    display: block;
+  }
+  .dashboard-view .sidebar-bottom {
+    flex-direction: column;
+    align-items: start;
+    margin-top: auto;
+    padding-top: 16px;
+  }
+  .dashboard-view .sidebar-bottom :is(button, a) {
+    display: flex;
+    font-size: 12px;
+  }
+  .dashboard-panel-toggle-left {
+    z-index: 11;
+  }
+  .dashboard-view .workspace {
+    padding-inline: 26px;
+  }
+  .dashboard-view .protein-stage {
+    height: 360px;
+  }
+  .dashboard-view :is(.protein-color-key, .calculation, .snapshot-inspector) {
+    padding-inline: 14px;
+  }
+  .dashboard-view .observatory > .energy-chart {
+    padding-inline: 14px;
+  }
+}

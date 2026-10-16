@@ -1,0 +1,99 @@
+.energy-chart .has-selectable-snapshots {
+  cursor: crosshair;
+  touch-action: manipulation;
+}
+.energy-snapshot-point {
+  fill: #aaa4e6;
+  stroke: #0d1b2b;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.energy-snapshot-target {
+  cursor: pointer;
+  outline: none;
+}
+.energy-snapshot-hit {
+  fill: transparent;
+}
+.energy-snapshot-target:focus-visible .energy-snapshot-hit {
+  stroke: var(--highlight);
+  stroke-width: 1.5;
+}
+.energy-selected-point {
+  fill: var(--highlight);
+  stroke: var(--panel);
+  stroke-width: 1.5;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+.energy-baseline-point {
+  fill: #b5a8ec26;
+  stroke: #c2b4ff;
+  stroke-width: 2;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+.snapshot-seek {
+  display: grid;
+  gap: 6px;
+  padding-top: 9px;
+  margin-top: 7px;
+  border-top: 1px solid #a0c2df12;
+  min-width: 0;
+}
+.snapshot-seek label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-size: 10px;
+  color: var(--muted, #a2b7cc);
+}
+.snapshot-seek input[type="range"] {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--highlight);
+}
+.snapshot-seek input[type="range"]:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.snapshot-seek-reading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 14px;
+  font:
+    10px/1.5 ui-monospace,
+    monospace;
+  min-width: 0;
+}
+.snapshot-selected-reading {
+  color: var(--highlight);
+}
+.snapshot-baseline-reading {
+  color: var(--violet, #c2b4ff);
+}
+.energy-chart .energy-chart-heading {
+  flex-wrap: wrap;
+}
+.energy-chart .energy-chart-heading > div {
+  flex-wrap: wrap;
+}
+.energy-chart .energy-chart-foot {
+  flex-wrap: wrap;
+}
+@media (max-width: 420px) {
+  .snapshot-seek-reading {
+    font-size: 9px;
+  }
+}
+.energy-protocol-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
